@@ -61,9 +61,9 @@ public class HelpMainFragment extends BaseFullScreenFragment implements OnItemCl
 	private ContextMenuListAdapter adapter;
 	private ListView listView;
 
-	/*private Locale locale = app
+	private Locale locale = app
 			.getLocaleHelper()
-			.getPreferredLocale();*/
+			.getPreferredLocale();
 
 	@Override
 	public int getStatusBarColorId() {
