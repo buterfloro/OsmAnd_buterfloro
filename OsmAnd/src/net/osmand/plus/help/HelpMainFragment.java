@@ -237,7 +237,7 @@ public class HelpMainFragment extends BaseFullScreenFragment implements OnItemCl
 
 		if (Algorithms.isEmpty(articles)) {
 			items.add(new ContextMenuItem(null)
-					.setTitle("No help articles found. Check your internet connection."));
+					.setTitle(getString(R.string.help_articles_not_found)));
 		} else {
 			createUserGuideCategory(items, articles);
 		}
