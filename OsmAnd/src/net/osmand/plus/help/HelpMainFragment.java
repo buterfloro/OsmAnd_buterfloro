@@ -46,6 +46,7 @@ import net.osmand.util.Algorithms;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 public class HelpMainFragment extends BaseFullScreenFragment implements OnItemClickListener, OnItemLongClickListener {
@@ -59,6 +60,10 @@ public class HelpMainFragment extends BaseFullScreenFragment implements OnItemCl
 
 	private ContextMenuListAdapter adapter;
 	private ListView listView;
+
+	private Locale locale = app
+			.getLocaleHelper()
+			.getPreferredLocale();
 
 	@Override
 	public int getStatusBarColorId() {
@@ -229,9 +234,14 @@ public class HelpMainFragment extends BaseFullScreenFragment implements OnItemCl
 
 	private void createDocsCategories(@NonNull List<ContextMenuItem> items) {
 		Map<String, HelpArticle> articles = articlesHelper.getArticles();
-		if (!Algorithms.isEmpty(articles)) {
+
+		if (Algorithms.isEmpty(articles)) {
+			items.add(new ContextMenuItem(null)
+					.setTitle("No documentation articles found. Check your internet connection."));
+		} else {
 			createUserGuideCategory(items, articles);
 		}
+
 		HelpArticle article = articles.get(TROUBLESHOOTING_CATEGORY);
 		if (article != null && !Algorithms.isEmpty(article.articles)) {
 			createTroubleshootingCategory(items, article);
