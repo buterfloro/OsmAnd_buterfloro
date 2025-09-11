@@ -61,9 +61,9 @@ public class HelpMainFragment extends BaseFullScreenFragment implements OnItemCl
 	private ContextMenuListAdapter adapter;
 	private ListView listView;
 
-	private Locale locale = app
+	/*private Locale locale = app
 			.getLocaleHelper()
-			.getPreferredLocale();
+			.getPreferredLocale();*/
 
 	@Override
 	public int getStatusBarColorId() {
@@ -237,7 +237,7 @@ public class HelpMainFragment extends BaseFullScreenFragment implements OnItemCl
 
 		if (Algorithms.isEmpty(articles)) {
 			items.add(new ContextMenuItem(null)
-					.setTitle("No documentation articles found. Check your internet connection."));
+					.setTitle("No help articles found. Check your internet connection."));
 		} else {
 			createUserGuideCategory(items, articles);
 		}
