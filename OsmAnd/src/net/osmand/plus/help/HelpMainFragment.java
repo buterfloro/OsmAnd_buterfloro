@@ -235,10 +235,12 @@ public class HelpMainFragment extends BaseFullScreenFragment implements OnItemCl
 	private void createDocsCategories(@NonNull List<ContextMenuItem> items) {
 		Map<String, HelpArticle> articles = articlesHelper.getArticles();
 
+		// Empty article list
 		if (Algorithms.isEmpty(articles)) {
 			items.add(new ContextMenuItem(null)
 					.setTitle(getString(R.string.help_articles_not_found)));
-		} else {
+		} // At least one article
+		else {
 			createUserGuideCategory(items, articles);
 		}
 
